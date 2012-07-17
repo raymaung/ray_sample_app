@@ -1,7 +1,7 @@
 
 @import "bootstrap";
 
-$lightGray: #999
+$grayMediumLight: #eaeaea;
 
 /* universal */
 html {
@@ -38,7 +38,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $lightGray;
+  color: $grayLight;
 }
 p{
 font-size: 1.1em; line-height: 1.7em;
@@ -68,11 +68,11 @@ font-size: 1.1em; line-height: 1.7em;
 footer {
 	margin-top: 45px;
 	padding-top: 5px;
-	border-top: 1px solid #eaeaea; color: $lightGray;
+	border-top: 1px solid #eaeaea; color: $grayMediumLight;
 	a{
-		color: #555;
+		color: $gray;
 		&:hover {
-		color: #222;
+		color: $grayDarker
 		}
 	}
 	small {
@@ -85,4 +85,5 @@ footer {
 			float: left;
 			margin-left: 10px;
 		}
-} }
+	} 
+}
