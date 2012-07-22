@@ -23,6 +23,7 @@ describe User do
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:authenticate)}
 
   it { should be_valid }
 
@@ -85,6 +86,11 @@ describe User do
 
   describe "when password doesn't match confirmation" do
     before { @user.password_confirmation = "mismatch" }
+    it { should_not be_valid }
+  end
+
+  describe "when password is too short" do
+    before {@user.password = @user.password_confirmation = 'a' * 5}
     it { should_not be_valid }
   end
 end
