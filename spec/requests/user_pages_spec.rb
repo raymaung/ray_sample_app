@@ -25,4 +25,22 @@ describe "UserPages" do
 
   end
 
+  describe "signup" do
+    before { visit signup_path }
+
+    describe "with invalid information" do
+      it 'should not creat a user' do
+        old_count = User.count
+        click_button 'Create my account'
+        new_account = User.count
+
+        new_account.should == old_count
+      end
+    end
+
+    describe "with valid information" do
+      it 'should create a user'
+    end
+  end
+
 end
