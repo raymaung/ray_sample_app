@@ -109,4 +109,13 @@ describe User do
       specify { user_for_invalid_password.should be_false}
     end
   end
+
+  describe "rememer token" do
+    before { @user.save }
+
+    it 'should have a nonblank remember token' do
+      subject.remember_token.should_not be_blank
+    end
+    
+  end
 end
