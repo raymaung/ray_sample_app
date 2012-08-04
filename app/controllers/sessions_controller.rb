@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    flash[:error] = 'Invalid email/password combination'
+    flash.now[:error] = 'Invalid email/password combination'
     render 'new'
   end
 
