@@ -51,4 +51,22 @@ describe "AuthenticationPages" do
       end
     end
   end
+
+  describe "authorization" do
+    let(:user) { FactoryGirl.create(:user)}
+
+    describe "for non-signed-in user" do
+
+      describe "in the Users controller" do
+
+        describe "visiting the edit page" do
+          before { visit edit_user_path(user)}
+
+          it { should have_selector('title', text: 'Sign in')}
+          it { should have_selector('div.alert.alert-notice')}
+        end
+        
+      end
+    end
+  end
 end

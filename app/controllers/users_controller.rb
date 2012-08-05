@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_filter :signed_in_user
+
   def new
     @user = User.new
   end
@@ -34,4 +36,9 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+    def signed_in_user
+      flash[:notice] = 'Please sign in.'
+      redirect_to signin_path unless signed_in?
+    end
 end
