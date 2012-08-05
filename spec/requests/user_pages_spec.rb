@@ -31,6 +31,24 @@ describe "UserPages" do
 
       it { should have_selector('div.pagination') }  
     end
+
+    describe "delete links" do
+
+      it { should_not have_link('delete') }
+
+      describe "as an admin user" do
+        let(:admin) { FactoryGirl.create(:admin)}
+
+        before do
+          sign_in admin
+          visit users_path
+        end
+
+        it { should have_link('delete', href: user_path(User.first))}
+        
+      end
+
+    end
   end
 
   describe "signup page" do
