@@ -93,7 +93,7 @@ describe "UserPages" do
       end
 
       it { should have_selector('title', text: new_name) }
-
+      it { should have_link('Sign out', href: signout_path)}
     end
 
   end
