@@ -76,11 +76,14 @@ describe "AuthenticationPages" do
       before {sign_in user}
 
       describe "visint Users#edit page" do
-
         before { visit edit_user_path(wrong_user)}
 
         it { should_not have_selector('title', text: 'Edit user')}
+      end
 
+      describe "submitting a PUT request to the Users#update action" do
+        before { put user_path(wrong_user) }
+        specify { response.should redirect_to(root_path)}
       end
     end
   end
