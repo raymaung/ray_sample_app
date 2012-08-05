@@ -80,5 +80,21 @@ describe "UserPages" do
       it { should have_content('error') }
     end
 
+    describe "with valid information" do
+      let(:new_name) { 'New name'}
+      let(:new_email) { 'new@example.com' }
+
+      before do
+        fill_in 'Name', with: new_name
+        fill_in 'Email', with: new_email
+        fill_in 'Password', with: user.password
+        fill_in 'Confirm password', with: user.password
+        click_button 'Save changes'
+      end
+
+      it { should have_selector('title', text: new_name) }
+
+    end
+
   end
 end
