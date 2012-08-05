@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :signed_in_user
+  before_filter :signed_in_user, only: [:edit]
 
   def new
     @user = User.new
