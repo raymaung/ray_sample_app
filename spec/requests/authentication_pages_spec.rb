@@ -62,6 +62,10 @@ describe "AuthenticationPages" do
           it { should have_selector('div.alert.alert-notice')}
         end
         
+        describe "submitting to the update action" do
+          before { put user_path(user) }
+          specify { response.should redirect_to(signin_path)}
+        end
       end
     end
   end
